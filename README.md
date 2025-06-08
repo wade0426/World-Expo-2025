@@ -19,6 +19,7 @@
 ├── index.html                  # 網站首頁
 ├── expo-2025-schedule.html     # 活動時程頁面
 ├── osaka-expo-2025-guide-0710-0711.html # 7/10-7/11 行程指南頁面
+├── attendance-guide.html       # 入場人數預測與參觀建議頁面
 ├── data.md                     # 網站內容的原始 Markdown 資料
 ├── styles.css                  # CSS 樣式表
 └── script.js                   # JavaScript 互動腳本，負責動態產生頁首頁尾、處理導覽列與頁籤功能

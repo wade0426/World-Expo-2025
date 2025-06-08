@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <ul>
                 <li><a href="index.html">首頁</a></li>
                 <li><a href="osaka-expo-2025-guide-0710-0711.html">行程指南</a></li>
+                <li><a href="attendance-guide.html">入場指南</a></li>
                 <li><a href="expo-2025-schedule.html">活動時程</a></li>
             </ul>
         </nav>
@@ -42,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --- Footer Injection ---
-    const footerHTML = `<p>&copy; 2024 非官方大阪世博指南. 所有資訊僅供參考，請以官方網站為準。</p>`;
+    const footerHTML = `<p>&copy; 2025 非官方大阪世博指南. 所有資訊僅供參考，請以官方網站為準。</p>`;
     const footerEl = document.querySelector('footer.site-footer');
     if (footerEl) {
         footerEl.insertAdjacentHTML('afterbegin', footerHTML);
