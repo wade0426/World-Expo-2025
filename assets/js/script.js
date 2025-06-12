@@ -1,8 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
     // --- Header Injection and Logic ---
+    const path = window.location.pathname;
+    const isInsidePavilions = path.includes('/pavilions/');
+    const prefix = isInsidePavilions ? '../' : '';
+
     const headerHTML = `
     <div class="container">
-        <a href="index.html" class="site-title">2025 大阪世博指南</a>
+        <a href="${prefix}index.html" class="site-title">2025 大阪世博指南</a>
         <button class="hamburger-menu" aria-label="Toggle navigation">
             <span class="bar"></span>
             <span class="bar"></span>
@@ -10,12 +14,11 @@ document.addEventListener('DOMContentLoaded', () => {
         </button>
         <nav class="main-nav">
             <ul>
-                <li><a href="index.html">首頁</a></li>
-                <li><a href="osaka-expo-2025-guide-0710-0711.html">行程指南</a></li>
-                <li><a href="attendance-guide.html">入場指南</a></li>
-                <li><a href="pavilion-reservations.html">展館預約</a></li>
-                <li><a href="pavilions-directory.html">展館介紹</a></li>
-                <li><a href="expo-2025-schedule.html">活動時程</a></li>
+                <li><a href="${prefix}index.html">首頁</a></li>
+                <li><a href="${prefix}osaka-expo-2025-guide-0710-0711.html">行程指南</a></li>
+                <li><a href="${prefix}pavilion-reservations.html">展館預約</a></li>
+                <li><a href="${prefix}pavilions/pavilions-directory.html">展館介紹</a></li>
+                <li><a href="${prefix}expo-2025-schedule.html">活動時程</a></li>
             </ul>
         </nav>
     </div>`;
@@ -34,11 +37,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // Highlight active navigation link
-        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+        const currentPagePath = window.location.pathname;
         const navLinks = headerEl.querySelectorAll('.main-nav a');
         navLinks.forEach(link => {
-            const linkPage = link.getAttribute('href');
-            if (linkPage === currentPage) {
+            // Create a full URL object for comparison to handle relative paths correctly
+            const linkUrl = new URL(link.href, window.location.href);
+            if (linkUrl.pathname === currentPagePath) {
                 link.classList.add('active');
             }
         });
