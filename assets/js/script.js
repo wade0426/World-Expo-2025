@@ -75,4 +75,31 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
+    // --- Pavilion Reservation Filter Logic ---
+    const filterContainer = document.querySelector('.filter-buttons');
+    if (filterContainer) {
+        const filterButtons = filterContainer.querySelectorAll('.filter-btn');
+        const itemsToFilter = document.querySelectorAll('.filterable-item');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Manage active state for buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+
+                const filter = button.dataset.filter;
+
+                itemsToFilter.forEach(item => {
+                    // Hide all items first
+                    item.classList.add('hidden');
+
+                    // Show items that match the filter
+                    if (filter === 'all' || item.classList.contains(filter)) {
+                        item.classList.remove('hidden');
+                    }
+                });
+            });
+        });
+    }
 }); 

@@ -5,6 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>展館預約 - 2025大阪世博會</title>
     <link rel="stylesheet" href="./assets/css/styles.css">
+    <style>
+        .filter-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+        .filter-btn {
+            background-color: var(--surface-color);
+            color: var(--text-muted-color);
+            border: 1px solid var(--border-color);
+            padding: 8px 18px;
+            cursor: pointer;
+            border-radius: 50px; /* Consistent with .btn */
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            font-size: 0.9em;
+        }
+        .filter-btn:hover {
+            background-color: var(--border-color);
+            color: var(--text-color);
+        }
+        .filter-btn.active {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .filterable-item {
+            display: block;
+            transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+            opacity: 1;
+            transform: scale(1);
+        }
+        .hidden {
+            display: none;
+            opacity: 0;
+            transform: scale(0.95);
+        }
+    </style>
 </head>
 <body>
 
@@ -16,72 +59,162 @@
             <h1 class="page-title">展館預約方式</h1>
             <p class="page-intro">展館的預約方式主要分為四種類型，了解不同類型的預約規則，有助於您更有效地規劃參觀行程。</p>
 
-            <article class="reservation-category">
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">全部</button>
+                <button class="filter-btn" data-filter="category-1">第一類</button>
+                <button class="filter-btn" data-filter="category-2">第二類</button>
+                <button class="filter-btn" data-filter="category-3">第三類</button>
+                <button class="filter-btn" data-filter="category-4">第四類</button>
+            </div>
+
+            <article class="reservation-category filterable-item category-1">
                 <h2>第一類：僅限預約，不開放現場排隊</h2>
                 <p>此類展館若未提前預約成功，就無法入場。建議在入園後立即嘗試預約當日剩餘名額。</p>
-                
-                <h3>主題展示區（紫色 Signature Zone）</h3>
                 <ul>
-                    <li>FUTURE OF LIFE（石黑浩策展）</li>
-                    <li>EARTH MART（小山薰堂策展）</li>
-                    <li>Better Co-Being（宮田裕章策展）</li>
-                    <li>null²（落合陽一策展）</li>
-                    <li>Live Earth Journey (XR Goggles超時空劇場與ANIMA音樂劇場)</li>
-                    <li>いのち動的平衡館（福岡伸一策展）</li>
-                    <li>生命的遊樂場：水母館 (WaiWai PechaKucha互動表演)</li>
-                    <li>Dialogue Theater（河瀨直美策展）</li>
-                </ul>
-
-                <h3>東側入口區（紅色 East Gate Zone）</h3>
-                <ul>
-                    <li>大阪健康照護館</li>
-                    <li>電力館</li>
-                    <li>Panasonic Pavilion "The Land of NOMO"</li>
-                    <li>NTT Pavilion 日本電信館</li>
-                    <li>三稜未來館</li>
-                    <li>女性館 (in collabortion with Cartier)</li>
-                </ul>
-
-                <h3>西側入口區（藍色 West Gate Zone）</h3>
-                <ul>
-                    <li>鋼彈館</li>
-                </ul>
-
-                <h3>未來生活區（淺綠色 Future Life Zone）</h3>
-                <ul>
-                    <li>太陽のつぼみ (TAIYO TSUBOMI)</li>
+                    <li><strong>X01</strong> Better Co-Being（宮田裕章策展）：讓生命產生共鳴</li>
+                    <li><strong>X02</strong> いのちの未来（石黑浩策展）：FUTURE OF LIFE 生命的未來</li>
+                    <li><strong>X03</strong> いのちの遊び場 クラゲ館（中島幸子策展）：生命遊樂場 水母館</li>
+                    <li><strong>X04</strong> null²（落合陽一策展）：磨練生命</li>
+                    <li><strong>X05</strong> いのち動的平衡館（福岡伸一策展）：生命動態平衡館</li>
+                    <li><strong>X06</strong> いのちめぐる冒険（河森正治策展）：Live Earth Journey ANIMA</li>
+                    <li><strong>X07</strong> EARTH MART（小山薰堂策展）</li>
+                    <li><strong>X08</strong> Dialogue Theater（河瀨直美策展）：いのちのあかし</li>
+                    <li><strong>W07</strong> GUNDAM NEXT FUTURE PAVILION</li>
+                    <li><strong>E02</strong> 大阪ヘルスケアパビリオン（大阪健康館）：Nest for Reborn (含Reborn to 2050)</li>
+                    <li><strong>E03</strong> NTT Pavilion 日本電信電話館</li>
+                    <li><strong>E05</strong> 三菱未来館</li>
+                    <li><strong>E06</strong> Panasonic Pavilion "The Land of NOMO"（松下集團「ノモの国」）</li>
+                    <li><strong>E08</strong> 電力館：可能性のタマゴたち（可能的蛋們）</li>
+                    <li><strong>E09</strong> Women's Pavilion (in collaboration with Cartier)</li>
                 </ul>
             </article>
 
-            <article class="reservation-category">
+            <article class="reservation-category filterable-item category-2">
                 <h2>第二類：可預約，也可現場排隊</h2>
                 <p>這類展館提供預約名額，也開放現場排隊，但建議優先預約以節省排隊時間。</p>
                 <ul>
-                    <li>PASONA NATUREVERSE（原子小金剛館）</li>
-                    <li>住友館 (sumitomo)</li>
-                    <li>關西館 (KANSAI Pavilion)</li>
-                    <li>TechWorld（台灣館）</li>
-                    <li>Blue Ocean Dome</li>
-                    <li>GAS PAVILION OBAKE WONDERLAND</li>
-                    <li>大阪健康照護館（主館＋重生體驗）</li>
+                    <li><strong>C02</strong> 盧森堡 (Luxembourg)</li>
+                    <li><strong>C04</strong> 韓國 (KOREA PAVILION)</li>
+                    <li><strong>C05</strong> 哈薩克 (Kazakhstan) / 亞美尼亞 (Armenia) (Commons-F)</li>
+                    <li><strong>C06</strong> 數位錢包公園 (Digital Wallet Park)</li>
+                    <li><strong>C07</strong> 亞塞拜然 (Azerbaijan)</li>
+                    <li><strong>C09</strong> 夜晚的地球 (Earth at Night)</li>
+                    <li><strong>C10</strong> 摩納哥 (Monaco)</li>
+                    <li><strong>C11</strong> 土耳其 (Türkiye)</li>
+                    <li><strong>C12</strong> 泰國 (Thailand Pavlilion)</li>
+                    <li><strong>C15</strong> 澳洲 (Australia)</li>
+                    <li><strong>C16</strong> 印尼 (Indonesia)</li>
+                    <li><strong>C18</strong> 烏茲別克 (Uzbekistan)</li>
+                    <li><strong>C19</strong> 塞爾維亞 (Serbia)</li>
+                    <li><strong>C20</strong> 孟加拉 (Bangladesh)</li>
+                    <li><strong>C21</strong> 塞內加爾 (Senegal)</li>
+                    <li><strong>C22</strong> 埃及 (Egypt)</li>
+                    <li><strong>C23</strong> Commons-B</li>
+                    <li><strong>S01</strong> Commons-C</li>
+                    <li><strong>S03</strong> 突尼西亞 (Tunisia)</li>
+                    <li><strong>S04</strong> 柬埔寨 (Cambodia)</li>
+                    <li><strong>S05</strong> 阿爾及利亞 (Algeria)</li>
+                    <li><strong>S06</strong> 波羅的海三國館 (The One 館 - 拉脫維亞 & 立陶宛)</li>
+                    <li><strong>S07</strong> 歐盟 (EU)</li>
+                    <li><strong>S08</strong> 比利時 (Belgium)</li>
+                    <li><strong>S09</strong> 義大利 & 梵蒂岡 (Italy and The Holy See)</li>
+                    <li><strong>S11</strong> 新加坡 (Singapore)</li>
+                    <li><strong>S12</strong> 保加利亞 (Bulgaria)</li>
+                    <li><strong>S13</strong> 荷蘭 (Netherlands)</li>
+                    <li><strong>S14</strong> Commons-D</li>
+                    <li><strong>S15</strong> 阿曼 (Oman)</li>
+                    <li><strong>S16</strong> 匈牙利 (Hungarian)</li>
+                    <li><strong>S20</strong> 波蘭 (Poland)</li>
+                    <li><strong>S21</strong> 羅馬尼亞 (Romania)</li>
+                    <li><strong>S22</strong> 英國 (United Kingdom)</li>
+                    <li><strong>S23</strong> 安哥拉 (Angola)</li>
+                    <li><strong>P02</strong> 馬來西亞 (Malaysia)</li>
+                    <li><strong>P03</strong> Commons-A</li>
+                    <li><strong>P04</strong> 約旦 (Jordan)</li>
+                    <li><strong>P05</strong> 祕魯 (Peru)</li>
+                    <li><strong>P07</strong> 空飛ぶクルマステーション (Advanced Air Mobility Station)</li>
+                    <li><strong>P08</strong> 莫三比克 (Mozambique)</li>
+                    <li><strong>P09</strong> 菲律賓 (Philippines)</li>
+                    <li><strong>P14</strong> 機器人館 (ロボット＆モビリティステーション)</li>
+                    <li><strong>P16</strong> 脈脈屋 (ミャクミャクハウス)</li>
+                    <li><strong>P17</strong> 卡達 (Qatar)</li>
+                    <li><strong>P18</strong> 阿拉伯聯合大公國 (UAE)</li>
+                    <li><strong>P19</strong> 加拿大 (Canada)</li>
+                    <li><strong>P20</strong> 葡萄牙 (Portugal)</li>
+                    <li><strong>P21</strong> 哥倫比亞 (Colombia)</li>
+                    <li><strong>P23</strong> 奧地利 (Austria)</li>
+                    <li><strong>P27</strong> 科威特 (Kuwait)</li>
+                    <li><strong>P28</strong> 中國 (China)</li>
+                    <li><strong>P29</strong> 國際組織館</li>
+                    <li><strong>P30</strong> 聯合國 (The United Nations)</li>
+                    <li><strong>P31</strong> 國際紅十字與紅新月運動</li>
+                    <li><strong>P32</strong> 當日活動登錄／免稅中心</li>
+                    <li><strong>P34</strong> 巴林 (Bahrain)</li>
+                    <li><strong>P35</strong> 土庫曼 (Turkmenistan)</li>
+                    <li><strong>P37</strong> 馬爾他 (Malta)</li>
+                    <li><strong>W01</strong> 主題週工作室 (テーマウィークスタジオ)</li>
+                    <li><strong>W02</strong> TECH WORLD 台灣館</li>
+                    <li><strong>W03</strong> 煤氣館：鬼怪仙境 (GAS PAVILION OBAKE WONDERLAND)</li>
+                    <li><strong>W04</strong> 飯田集團×大阪公立大學共同出展館</li>
+                    <li><strong>W05</strong> 日本外食協會館「宴～UTAGE～」</li>
+                    <li><strong>W06</strong> BLUE OCEAN DOME</li>
+                    <li><strong>W09</strong> PASONA NATUREVERSE</li>
+                    <li><strong>W10</strong> 吉本興業館 (よしもと waraii myraii館)</li>
+                    <li><strong>E01</strong> 關西館 (KANSAI PAVILION)</li>
+                    <li><strong>E02</strong> 魔物獵人 XD橋</li>
+                    <li><strong>E07</strong> 住友館 (SUMITOMO)</li>
+                    <li><strong>L02,L03</strong> 未來生活村 (フューチャーライフヴィレッジ)</li>
+                    <li><strong>L04</strong> 未來移動體驗 (モビリティエクスペリエンス)</li>
+                    <li><strong>L05</strong> 未來都市 (未来の都市)</li>
+                    <li><strong>L07</strong> Junior SDGs Camp</li>
+                    <li>碳循環工廠 (カーボンリサイクルファクトリー - RITE / 大阪ガス)</li>
+                    <li>地球的恩惠站見學 (地球の恵みステーション見学ツアー)</li>
                 </ul>
             </article>
 
-            <article class="reservation-category">
+            <article class="reservation-category filterable-item category-3">
                 <h2>第三類：不可預約，僅限現場排隊</h2>
                 <p>此類展館完全不開放預約，參觀者皆需現場排隊。</p>
                 <ul>
-                    <li>美國館</li>
+                    <li><strong>C03</strong> 德國 (Germany)</li>
+                    <li><strong>C13</strong> 西班牙 (Spain)</li>
+                    <li><strong>C14</strong> 沙烏地阿拉伯 (Saudi Arabia)</li>
+                    <li><strong>P01</strong> 愛爾蘭 (Ireland)</li>
+                    <li><strong>P11</strong> 美國 (USA)</li>
+                    <li><strong>P12</strong> 法國 (France)</li>
+                    <li><strong>P22</strong> 瑞士 (Switzerland)</li>
+                    <li><strong>P26</strong> 巴西 (Brazil)</li>
+                    <li><strong>P36</strong> 北歐館 (Nordic: Iceland, Sweden, Denmark, Norway, Finland)</li>
+                    <li><strong>P38</strong> 捷克 (Czechia)</li>
+                </ul>
+            </article>
+
+            <article class="reservation-category filterable-item category-4">
+                <h2>第四類：指定時段開放現場排隊</h2>
+                <p>此類展館有特定時段開放給沒有預約的遊客排隊入場。</p>
+                <ul>
+                    <li><strong>E10</strong> 日本館 (Japan Pavilion)：每日 9:30-10:30 及 19:30-20:30</li>
+                    <li>夜間虹之大遊行與水舞秀：每晚 19:10-19:30 及 20:30-21:00</li>
                 </ul>
             </article>
 
             <article class="reservation-category">
-                <h2>第四類：指定時段開放現場排隊</h2>
-                <p>此類展館有特定時段開放給沒有預約的遊客排隊入場。</p>
-                <ul>
-                    <li>日本館：每日 9:30-10:30 及 19:30-20:30 開放現場排隊。</li>
-                </ul>
+                <h2>分類說明</h2>
+                <p><strong>第一類：僅限預約</strong><br>
+                主要包含主題展示區（Signature Pavilion）的8個展館，以及部分熱門的日本企業展館。這些展館因為預期人流量極大，完全採用預約制度管理。</p>
+                <p><strong>第二類：可預約也可現場排隊</strong><br>
+                涵蓋大部分國家展館及企業展館。建議如有特別想參觀的展館，優先使用預約系統以減少現場排隊時間。</p>
+                <p><strong>第三類：僅限現場排隊</strong><br>
+                包含美國館、法國館、德國館等主要國家展館。建議避開12-16點的高峰時段參觀，通常只需排隊10-15分鐘。</p>
+                <p><strong>第四類：指定時段開放現場排隊</strong><br>
+                目前僅有日本館與夜間表演採用此方式，每日開放特定時段供未預約遊客排隊入場。</p>
             </article>
+            
+            <article class="reservation-category">
+                <h2>參觀建議</h2>
+                <p>根據官方預約政策，建議參觀者優先預約第一類展館，合理安排第二類展館的預約與現場排隊時間，並在人流較少的時段參觀第三類展館。對於第四類展館，請務必在指定時段前往以確保入場機會。</p>
+            </article>
+
         </section>
     </main>
 
