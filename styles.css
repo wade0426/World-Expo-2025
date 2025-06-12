@@ -352,4 +352,61 @@ strong {
     .hamburger-menu {
         display: block;
     }
+}
+
+/* --- Styles for reservation page --- */
+.page-content {
+    background-color: var(--surface-color);
+    border-radius: var(--border-radius);
+    padding: 30px 40px;
+    margin-top: 30px;
+    box-shadow: var(--box-shadow);
+}
+
+.page-title {
+    text-align: center;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 3px solid var(--primary-color);
+}
+
+.page-intro {
+    text-align: center;
+    font-size: 1.1em;
+    color: var(--text-muted-color);
+    max-width: 80%;
+    margin: 0 auto 40px auto;
+}
+
+.reservation-category {
+    margin-bottom: 40px;
+    padding: 25px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    background-color: #2c2c2c;
+}
+
+.reservation-category h2 {
+    border-bottom: none;
+    margin-top: 0;
+    padding-bottom: 0;
+}
+
+.reservation-category ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.reservation-category li {
+    background-color: var(--surface-color);
+    padding: 12px 15px;
+    margin-bottom: 8px;
+    border-radius: 8px;
+    border-left: 4px solid var(--secondary-color);
+}
+
+
+ul {
+    padding-left: 20px;
+    line-height: 1.8;
 } 
