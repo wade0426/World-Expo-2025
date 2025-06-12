@@ -409,4 +409,54 @@ strong {
 ul {
     padding-left: 20px;
     line-height: 1.8;
+}
+
+/* --- Styles for Pavilion Pages --- */
+.pavilion-grid .card-content h3 {
+    margin-top: 0;
+    color: var(--text-color);
+}
+
+.pavilion-grid .card-link {
+    text-decoration: none;
+}
+
+.pavilion-grid .card {
+    min-height: 100px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.pavilion-detail-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.pavilion-info h3 {
+    border-left: 4px solid var(--secondary-color);
+    padding-left: 10px;
+}
+
+.pavilion-info ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.pavilion-info ul li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 10px;
+}
+
+.pavilion-info ul li::before {
+    content: '▶';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--primary-color);
 } 
