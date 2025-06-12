@@ -82,24 +82,36 @@ document.addEventListener('DOMContentLoaded', () => {
         const filterButtons = filterContainer.querySelectorAll('.filter-btn');
         const itemsToFilter = document.querySelectorAll('.filterable-item');
 
-        filterButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                // Manage active state for buttons
-                filterButtons.forEach(btn => btn.classList.remove('active'));
-                button.classList.add('active');
+        const handleFilter = (event) => {
+            // For touchend, we prevent the emulated click that follows.
+            // This ensures the logic doesn't run twice on touch devices.
+            if (event.type === 'touchend') {
+                event.preventDefault();
+            }
 
-                const filter = button.dataset.filter;
+            const clickedButton = event.currentTarget;
 
-                itemsToFilter.forEach(item => {
-                    // Hide all items first
-                    item.classList.add('hidden');
+            // Do nothing if the button is already active
+            if (clickedButton.classList.contains('active')) {
+                return;
+            }
 
-                    // Show items that match the filter
-                    if (filter === 'all' || item.classList.contains(filter)) {
-                        item.classList.remove('hidden');
-                    }
-                });
+            // Manage active state for buttons
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            clickedButton.classList.add('active');
+
+            const filter = clickedButton.dataset.filter;
+
+            // Filter the items
+            itemsToFilter.forEach(item => {
+                const shouldBeVisible = (filter === 'all' || item.classList.contains(filter));
+                item.classList.toggle('hidden', !shouldBeVisible);
             });
+        };
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', handleFilter);
+            button.addEventListener('touchend', handleFilter);
         });
     }
 }); 
