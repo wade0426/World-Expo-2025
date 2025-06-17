@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const headerHTML = `
     <div class="container">
-        <a href="${prefix}index.html" class="site-title">2025 大阪世博指南</a>
+        <a href="${prefix}index.html" class="site-title">2025 大阪世界博覽會</a>
         <button class="hamburger-menu" aria-label="Toggle navigation">
             <span class="bar"></span>
             <span class="bar"></span>
@@ -15,10 +15,11 @@ document.addEventListener('DOMContentLoaded', () => {
         <nav class="main-nav">
             <ul>
                 <li><a href="${prefix}index.html">首頁</a></li>
-                <li><a href="${prefix}osaka-expo-2025-guide-0710-0711.html">行程指南</a></li>
+                <li><a href="${prefix}osaka-expo-2025-guide-0710-0711.html">參觀指南</a></li>      
                 <li><a href="${prefix}pavilion-reservations.html">展館預約</a></li>
-                <li><a href="${prefix}pavilions/pavilions-directory.html">展館介紹</a></li>
-                <li><a href="${prefix}expo-2025-schedule.html">活動時程</a></li>
+                <li><a href="${prefix}reservable-pavilions-list.html">可預約場館</a></li>
+                <li><a href="${prefix}pavilions/pavilions-directory.html">展館目錄</a></li>     
+                <li><a href="${prefix}expo-2025-schedule.html">活動時間表</a></li>
             </ul>
         </nav>
     </div>`;
@@ -49,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --- Footer Injection ---
-    const footerHTML = `<p>&copy; 2025 非官方大阪世博指南. 所有資訊僅供參考，請以官方網站為準。</p>`;
+    const footerHTML = `<p>&copy; 2025 大阪世界博覽會非官方資訊站。本網站內容僅供參考，與官方組織無關。</p>`;
     const footerEl = document.querySelector('footer.site-footer');
     if (footerEl) {
         footerEl.insertAdjacentHTML('afterbegin', footerHTML);
